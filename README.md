@@ -1,5 +1,12 @@
-# kaartjesgenerator
+# Kaartjesgenerator
 Generate pages and pages of cards for a game
+
+Installation
+------------
+
+    git clone https://github.com/LoyVanBeek/kaartjesgenerator.git
+    cd kaartjesgenerator
+    sudo pythhon setup.py install
 
 Usage
 -----
