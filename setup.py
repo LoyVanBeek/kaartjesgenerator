@@ -6,6 +6,4 @@ setup(name='kaartjesgenerator',
       url='http://github.com/LoyVanBeek/kaartjesgenerator',
       author='Loy van Beek',
       author_email='loy@scoutingboxtel.nl',
-      license='GPLv2',
-      packages=['kaartjesgenerator'],
-      zip_safe=False)
+      license='GPLv2')
