@@ -6,7 +6,7 @@ Installation
 
     git clone https://github.com/LoyVanBeek/kaartjesgenerator.git
     cd kaartjesgenerator
-    sudo pythhon setup.py install
+    sudo python setup.py install
 
 Usage
 -----
