@@ -2,12 +2,14 @@
 
 import sys
 from collections import OrderedDict
+SIZE = (180,180)
 
 def main(amount_mapping, border_colored=True, title=None):
     yield """<html>
         <head>
             <title>{0}</title>
-        </head>""".format(title if title else "")
+            <style>img{{width:100%;  max-width:{1}px; height:100%;  max-height:{2}px;}}</style>
+        </head>""".format(title if title else "", SIZE[0], SIZE[1])
     yield """<body style="font-family:arial; font-size:80px">"""
 
     yield "\n".join(generate_table(amount_mapping, border_colored))
@@ -41,9 +43,9 @@ def generate_table(amount_mapping, border_colored=True):
 def generate_cards(amount_mapping, border_colored=True):
     #import ipdb; ipdb.set_trace()
     for imagepath, amount in amount_mapping.iteritems():
-        imagecode = """<img src="{0}"/>""".format(imagepath)
+        imagecode = """<img src="{0}" height="{0}" width="{1}"/>""".format(imagepath, SIZE[0], SIZE[1])
         for i in range(amount):
-            height,width = 180,180
+            height,width = SIZE
             border_width = 1 if border_colored else 1
             height -= 2*border_width
             width -= 2*border_width
@@ -64,7 +66,7 @@ if __name__ == "__main__":
     filename = sys.argv[1]
 
     amounts = sys.argv[2:]
-    
+
     amount_mapping = OrderedDict()
     for amountstr in amounts:
         parts = amountstr.split(":")
