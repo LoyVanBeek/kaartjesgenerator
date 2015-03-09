@@ -63,9 +63,12 @@ def generate_cards(amount_mapping, border_colored=True):
 if __name__ == "__main__":
     filename = sys.argv[1]
 
+    amounts = sys.argv[2:]
+    
     amount_mapping = OrderedDict()
-    for k in range(1,12):
-        amount_mapping[2**k] = 20
+    for amountstr in amounts:
+        parts = amountstr.split(":")
+        amount_mapping[parts[0]] =int(parts[1])
 
     with file(filename, "w+") as f:
         for html in main(amount_mapping, border_colored=True):
