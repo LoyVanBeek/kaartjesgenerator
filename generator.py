@@ -2,7 +2,7 @@
 
 import sys
 from collections import OrderedDict
-SIZE = (180,180)
+SIZE = (918,305)  # (width, height)
 
 def main(amount_mapping, border_colored=True, title=None):
     yield """<html>
@@ -20,7 +20,7 @@ def generate_table(amount_mapping, border_colored=True):
     cells = generate_cards(amount_mapping, border_colored)
     #import ipdb; ipdb.set_trace()
     total = sum(amount_mapping.values())
-    columns = 4
+    columns = 1
     rows = (total/columns)+1
 
     yield "\n\t\t<table>"
@@ -43,7 +43,7 @@ def generate_table(amount_mapping, border_colored=True):
 def generate_cards(amount_mapping, border_colored=True):
     #import ipdb; ipdb.set_trace()
     for imagepath, amount in amount_mapping.iteritems():
-        imagecode = """<img src="{0}" height="{0}" width="{1}"/>""".format(imagepath, SIZE[0], SIZE[1])
+        imagecode = """<img src="{0}" height="{2}" width="{1}"/>""".format(imagepath, SIZE[0], SIZE[1])
         for i in range(amount):
             height,width = SIZE
             border_width = 1 if border_colored else 1
@@ -53,9 +53,9 @@ def generate_cards(amount_mapping, border_colored=True):
             yield """<div style='
                 border: solid {3}px;
                 text-align: center; 
-                width: {2}px; 
-                height: {1}px; 
-                line-height: {1}px;
+                width: {1}px; 
+                height: {2}px; 
+                line-height: {2}px;
                 margin: 5px; 
                 vertical-align:bottom; 
                 padding: 10px;
